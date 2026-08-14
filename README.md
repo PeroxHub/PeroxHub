@@ -58,7 +58,7 @@ perox@dev:~$ cat activity.md
   Generated automatically by .github/workflows/snake.yml — updates every day.
   Shows up here ONLY after you activate the workflow (see setup instructions).
 -->
-<img src="https://raw.githubusercontent.com/perox/perox/output/github-contribution-grid-snake-dark.svg" />
+<img src="https://raw.githubusercontent.com/PeroxHub/PeroxHub/output/github-contribution-grid-snake-dark.svg" />
 
 </div>
 
