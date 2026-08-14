@@ -1,0 +1,43 @@
+name: Genera terminal GIF
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"   # ogni lunedì alle 04:00 UTC
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/generate_terminal.py"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installa ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Installa github-readme-terminal
+        run: python -m pip install --upgrade github-readme-terminal
+
+      - name: Genera la GIF
+        run: |
+          mkdir -p assets
+          python scripts/generate_terminal.py
+          mv output.gif assets/terminal.gif
+
+      - name: Commit della GIF aggiornata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/terminal.gif
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: aggiorna terminal.gif"
+          git push
