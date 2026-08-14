@@ -48,6 +48,23 @@ perox@dev:~$ cat stack.md
 <br>
 
 ```bash
+perox@dev:~$ cat activity.md
+```
+
+<div align="center">
+
+<!--
+  Snake animation from the GitHub contribution graph.
+  Generated automatically by .github/workflows/snake.yml — updates every day.
+  Shows up here ONLY after you activate the workflow (see setup instructions).
+-->
+<img src="https://raw.githubusercontent.com/perox/perox/output/github-contribution-grid-snake-dark.svg" />
+
+</div>
+
+<br>
+
+```bash
 perox@dev:~$ cat contact.md
 ```
 
